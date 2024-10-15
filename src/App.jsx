@@ -40,7 +40,7 @@ const Sphere = ({ position, size, color}) => {
       onClick={() => setIsClicked(!isClicked)}
       scale={isClicked ? 1.5 : 1}
     >
-        <sphereGeometry args={size}/>
+        <sphereGeometry size={size}/>
         <meshStandardMaterial color={isHovered ? color : "lightblue"} wireframe/>
     </mesh>
   )
@@ -49,7 +49,7 @@ const Sphere = ({ position, size, color}) => {
 const Torus = ({ position, size, color}) => {
   return (
     <mesh position={position}>
-        <torusGeometry args={size}/>
+        <torusGeometry size={size}/>
         <meshStandardMaterial color={color}/>
     </mesh>
   )
@@ -66,7 +66,7 @@ const TorusKnot = ({ position, size, color}) => {
   
   return (
     <mesh position={position} ref={ref}>
-        <torusKnotGeometry args={size}/>
+        <torusKnotGeometry size={size}/>
         <meshStandardMaterial color={color}/>
     </mesh>
   )
@@ -74,10 +74,11 @@ const TorusKnot = ({ position, size, color}) => {
 
 const App = () => {
 
+  
   return (
     <>
       <Canvas>
-        <directionalLight position={[0,0,2]}/> intensity={1}
+        <directionalLight position={[0,0,2]} intensity={1}/>
         {/* <ambientLight intensity={1}/> */}
 
         <group position={[0,-1,0]}>
